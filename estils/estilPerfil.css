@@ -1,0 +1,245 @@
+/* Alba Matamoros Morales */
+
+/* ----------------------------- */
+/* -- ESTILS INICI I REGISTRE --*/
+/* -----------------------------*/
+
+body {
+    background-image: url("../vista/imatges/wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+/* ------------------------------------- */
+/* -- ESTILS VISTA RESTABLIR CONTRA -- */
+/* ------------------------------------- */
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    justify-content: center; /* Centra los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto de los <p> */
+}
+
+.container button {
+    margin-top: 20px; /* Añade un espacio por encima del botón si es necesario */
+}
+
+.container p {
+    margin-top: 20px;
+}
+
+/* ----------------------------------- */
+/* -- ESTILS FORMULARI DE REGISTRE -- */
+/* ----------------------------------- */
+
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para las etiquetas */
+.login-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.recaptcha-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    margin: 10px auto 20px auto; /* Añade margen */
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.login-container .form-footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-container .form-footer a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.login-container .form-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-container input[type="file"] {
+    width: 100%;                  /* Asegura que el input ocupe todo el ancho disponible */
+    padding: 10px;                /* Añade espacio dentro del campo */
+    margin-bottom: 20px;          /* Espacio debajo del campo */
+    border: 1px solid #ccc;      /* Borde gris claro */
+    border-radius: 4px;          /* Bordes redondeados */
+    font-size: 16px;              /* Tamaño de fuente adecuado */
+    background-color: #f8f8f8;   /* Fondo gris claro */
+    cursor: pointer;             /* Aparece un puntero al pasar el mouse sobre él */
+}
+
+.info-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* -------------------- */
+/* -- USUARIS IMAGEN -- */
+/* -------------------- */
+
+.user-avatar2 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover para la imagen de perfil */
+.user-avatar2:hover {
+    transform: scale(1.05);
+}
+
+.login-container-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra la imagen y los otros elementos dentro del formulario */
+}
+
+/* ---------------------------- */
+/* -- ESTILS LLISTAT USUARIS -- */
+/* ---------------------------- */
+
+.usuarios-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.usuarios-titulo {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.usuarios-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.usuarios-tabla th,
+.usuarios-tabla td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.usuarios-tabla th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.usuarios-tabla tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.usuarios-tabla img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.usuarios-tabla a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #eee;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.usuarios-tabla a:hover {
+    background-color: #ddd;
+}
+
+/*--------- BUTTONS -------- */
+
+.btn {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-size: 16px; /* Tamaño del texto */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover */
+.btn:hover {
+    background-color: #555; /* Fondo más claro al pasar por encima */
+}

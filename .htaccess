@@ -1,0 +1,4 @@
+# Configuración de las páginas de error personalizadas
+ErrorDocument 404 /vista/errors/vistaError404.php
+ErrorDocument 403 /vista/errors/vistaError403.php
+ErrorDocument 500 /vista/errors/vistaError500.php

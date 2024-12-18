@@ -1,0 +1,129 @@
+/* Alba Matamoros Morales */
+
+/* ---------------------- */
+/* -- CONTROL D'ERRORS --*/
+/* ---------------------- */
+
+/* ERROR */
+.error-container {
+    background-color: #f8d7da;
+    color: black;
+    border: 1px solid #920d1b;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* CORRECTE */
+.success-container {
+    background-color: #8be985;
+    color: black;
+    border: 1px solid #1f741a;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ESTILS */
+.error-icon, .success-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.error-message, .success-message {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+/* ----------------------------------*/
+/* -- ERRORS PAGINAS 404, 403, 500 -- */
+/* ----------------------------------*/
+
+/* ESTIL PÀGINA ERROR 404 */
+
+/* Estilos específicos para el contenedor de error */
+.error-container-pagina {
+    background-color: #ffebee;
+    border-color: #ff1744;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    transform: translateY(20px);
+    animation: slideUp 0.8s ease-out;
+}
+
+/* Animación para el contenedor de error (subir desde abajo) */
+@keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Estilos para el título dentro del contenedor de error */
+.error-container-pagina h1 {
+    font-size: 100px;
+    margin-bottom: 15px;
+    color: #ff1744;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    animation: jump 1s ease-in-out infinite; /* Animación de salto */
+}
+
+/* Animación de salto para el título */
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Estilos para el párrafo dentro del contenedor de error */
+.error-container-pagina p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 25px;
+    font-weight: 300;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Animación para el párrafo (aparecer desde abajo) */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos del botón dentro del contenedor de error */
+.error-container-pagina a {
+    position: relative;
+    display: inline-block;
+    padding: 14px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+/* Efecto de hover en el botón dentro del contenedor de error */
+.error-container-pagina a:hover {
+    background-color: #ff1744;
+    transform: scale(1.05); /* Efecto de escala en hover */
+}
+
+/* Efecto de clic en el botón dentro del contenedor de error */
+.error-container-pagina a:active {
+    background-color: #d50000;
+    transform: scale(0.98); /* Efecto de presionado */
+}
+
