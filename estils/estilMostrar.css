@@ -118,6 +118,14 @@ section {
     background-color: #2980b9;
 }
 
+.copiar-btn {
+    background-color: #3498db;
+}
+
+.copiar-btn:hover {
+    background-color: #2980b9;
+}
+
 @media (max-width: 768px) {
     .personatge-box {
         padding: 12px;

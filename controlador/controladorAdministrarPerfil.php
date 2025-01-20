@@ -65,7 +65,6 @@
                                 // Obtener detalles de la imagen
                                 $nomImatge = $_FILES['arxiu']['name'];
                                 
-                                var_dump($tipusImatge);
                                 $directoriTemporalImatge = $_FILES['arxiu']['tmp_name']; 
 
                                 // Carpeta de destino para la imagen
@@ -255,9 +254,6 @@
                         }
 
                         $correct = password_verify($novaContrasenya, $usuariIdToken['contrasenya']);
-                        var_dump($correct);
-                        var_dump($novaContrasenya);
-                        var_dump($usuariIdToken['contrasenya']);
                         if ($correct == true) {
                             $errors[] = "➤ La contrasenya nova no pot ser igual que l'actual.";
                         }

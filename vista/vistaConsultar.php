@@ -75,8 +75,6 @@
         </div>
     </nav>
 
-    <?php var_dump($_SESSION["loginAutentificacio"])?>
-
     <!-- MOSTRAR PERSONATGES -->
     <section>
         <!------------------------->

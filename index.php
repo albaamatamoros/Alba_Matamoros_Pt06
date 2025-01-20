@@ -67,9 +67,6 @@
         } ?>
     </div>
 
-    <?php var_dump($_SESSION["loginAutentificacio"])?>
-
-
     <!------------>
     <!-- PERFIL -->
     <!------------>
@@ -93,7 +90,7 @@
             </a>
             <div class="dropdown-content">
                 <a href="vista/vistaPerfil.php">Administrar perfil</a>
-                <?php if ($_SESSION["loginAutentificacio"] == ""): ?>
+                <?php if (isset($_SESSION["loginAutentificacio"]) && $_SESSION["loginAutentificacio"] == ""): ?>
                     <a href="vista/vistaCanviContra.php">Canviar contrasenya</a>
                 <?php endif; ?>
                 <?php if ($_SESSION["loginAdministrador"] == 1): ?>

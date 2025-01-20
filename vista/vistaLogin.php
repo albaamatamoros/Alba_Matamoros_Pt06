@@ -74,8 +74,20 @@
             <a href="<?php echo $url; ?>">Google</a>
         </div>
 
-        <!-- CONTROL D'ERRORS -->
-        <?php mostrarMissatge($errors, $correcte) ?>
+        <?php 
+            if (!isset($errors)) {
+                $errors = [];
+            }
+
+            if (!isset($correcte)) {
+                $correcte = null; 
+            }
+
+            // CONTROL D'ERRORS
+            mostrarMissatge($errors, $correcte);
+        ?>
+
+        
 
         <div class="form-footer">
             <p>No tens compte? <a href="../vista/vistaRegistrarse.php">Registrat</a></p>

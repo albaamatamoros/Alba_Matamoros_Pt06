@@ -9,7 +9,7 @@ elemento {
 }
 
 body {
-    background-image: url("../vista/imatges/wallpaper.jpg");
+    background-image: url("../vista/imatges/wallpaper.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

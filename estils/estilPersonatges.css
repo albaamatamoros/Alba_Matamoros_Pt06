@@ -12,7 +12,7 @@
 }
 
 body {
-    background-image: url("../vista/imatges/wallpaper.jpg");
+    background-image: url("../vista/imatges/wallpaper.webp");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -21,6 +21,20 @@ body {
     height: 100vh;
     margin-top: 60px; 
     padding: 20px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.recuadro {
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 10px; /* Espacio entre recuadros */
+    background-color: #ffffff; /* Fondo suave */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 .button-container {

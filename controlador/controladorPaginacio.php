@@ -105,6 +105,8 @@
                 $personatges = consultarPerUsuariPaginacioDESC($_SESSION['loginId'], $paginaActual, PERSONATGES_PER_PAGINA);
             }
         }
+        
+        
 
         if (!empty($personatges)) {
             foreach ($personatges as $personatge){
@@ -184,21 +186,46 @@
             } 
         }
 
-        if (!empty($personatges)) {
-            foreach ($personatges as $personatge){
-                $mostrarPersonatges .= sprintf(
-                    '<div class="personatge-box">
-                        <h2 class="personatge-nom">%s</h2>
-                        <p class="personatge-cos">%s</p>
-                    </div>
-                ', $personatge['nom'], $personatge['cos']);
+        if (str_contains($_SERVER['SCRIPT_NAME'], '/vista')) {
+            if (!empty($personatges)) {
+                foreach ($personatges as $personatge){
+                    $mostrarPersonatges .= sprintf(
+                        '<div class="personatge-box">
+                            <h2 class="personatge-nom">%s</h2>
+                            <p class="personatge-cos">%s</p>
+                            <div class="personatge-botons">
+                                <a class="copiar-btn" href="../vista/vistaCopiarPersonatge.php?id_personatge=%s">📋</a>
+                            </div>
+                        </div>
+                    ', $personatge['nom'], $personatge['cos'], $personatge['id_personatge']);
+                }
+            } else {
+                $mostrarPersonatges = '<p>No hi ha personatges disponibles.</p>';
             }
         } else {
-            $mostrarPersonatges = '<p>No hi ha personatges disponibles.</p>';
+            if (!empty($personatges)) {
+                foreach ($personatges as $personatge){
+                    $mostrarPersonatges .= sprintf(
+                        '<div class="personatge-box">
+                            <h2 class="personatge-nom">%s</h2>
+                            <p class="personatge-cos">%s</p>
+                        </div>
+                    ', $personatge['nom'], $personatge['cos']);
+                }
+            } else {
+                $mostrarPersonatges = '<p>No hi ha personatges disponibles.</p>';
+            }
         }
 
         return $mostrarPersonatges;
     }
+
+    //LINKS: PAGINACIO GLOBAL (APARTAT CERCA I COPIA DE PERSONATGES).
+    //CREAR ELS LINKS DE LA PAGINACIÓ GLOBAL.
+
+    //MOSTRAR PERSONATGES GLOBAL (APARTAT CERCA I COPIA DE PERSONATGES).
+    //PAGINACIO DELS PERSONATGES GLOBAL.
+
 
     //-----------------------------------------------------
     //-------------- ADMINISTRAR USUARIS -------------------

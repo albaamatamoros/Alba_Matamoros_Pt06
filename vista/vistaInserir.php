@@ -55,11 +55,16 @@
             
             <form action="../controlador/controladorInsertar.php" method="POST">
                 <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" value="<?php echo isset ($_POST['nom']) ? htmlspecialchars($_POST['nom']) : '' ; ?>"/>
-                    
-                <label for="text">Descripció:</label>
-                <input type="text" id="text" name="text" value="<?php echo isset ($_POST['text']) ? htmlspecialchars($_POST['text']) : '' ; ?>" ></input>
+                <input type="text" id="nom" name="nom" value="<?php 
+                    echo isset($_GET['nom']) ? htmlspecialchars($_GET['nom']) : (isset($_POST['nom']) ? htmlspecialchars($_POST['nom']) : '');
+                ?>"/>            
 
+                <label for="text">Descripció:</label>
+
+                <input type="text" id="text" name="text" value="<?php 
+                    echo isset($_GET['cos']) ? htmlspecialchars($_GET['cos']) : (isset($_POST['text']) ? htmlspecialchars($_POST['text']) : ''); 
+                ?>" />
+                
                 <!-- CONTROL D'ERRORS -->
                 <?php mostrarMissatge($errors, $correcte) ?>
 
