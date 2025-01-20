@@ -83,49 +83,52 @@
         </form>
     </div>
 
-    <!-- Modal -->
     <div id="qrModal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <div id="modalBody">
+            <span class="close" id="tancarModal">&times;</span>
+            <div id="modalText">
                 <div class="spinner"></div>
-                <p>Generando QR...</p>
+                <p>Genera'n QR...</p>
             </div>
         </div>
     </div>
 
     <script>
         document.getElementById("generateQR").addEventListener("click", function () {
-            // Mostrar el modal
-            const modal = document.getElementById("qrModal");
-            modal.style.display = "flex";
 
-            // Crear objeto FormData con los datos del formulario
-            const form = document.getElementById("qrForm");
-            const formData = new FormData(form);
+        const modal = document.getElementById("qrModal");
+        modal.style.display = "flex";  // El modal es fa visible
 
-            // Enviar los datos al servidor usando fetch
-            fetch("../controlador/generarQR.php", {
-                method: "POST",
-                body: formData
-            })
-                .then(response => response.text())
-                .then(data => {
-                    // Mostrar el resultado en el modal
-                    const modalBody = document.getElementById("modalBody");
-                    modalBody.innerHTML = `<img src="data:image/png;base64,${data}" alt="Código QR"/>`;
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    const modalBody = document.getElementById("modalBody");
-                    modalBody.innerHTML = `<p>Error al generar el QR. Inténtalo de nuevo.</p>`;
-                });
+        // Creem un objecte FormData per recollir totes les dades del formulari
+        const form = document.getElementById("qrForm");
+        const formData = new FormData(form);
+
+        // Enviem les dades al servidor amb una petició AJAX utilitzant fetch
+        fetch("../controlador/controladorCopiarPersonatge.php", {
+            method: "POST",
+            body: formData
+        })
+
+        // Quan el servidor respongui, executarem aquesta funció
+        .then(response => response.text())
+        .then(data => {
+            //Actualitzem el contingut del modal
+            const modalText = document.getElementById("modalText");
+            modalText.innerHTML = data;
+        })
+        .catch(error => {
+            const modalText = document.getElementById("modalText");
+            modalText.innerHTML = `<p>Error al generar el QR. Intenta'l de nou.</p>`;
+        });
         });
 
-        // Cerrar el modal
-        document.getElementById("closeModal").addEventListener("click", function () {
-            const modal = document.getElementById("qrModal");
-            modal.style.display = "none";
+        document.addEventListener("DOMContentLoaded", function () {
+            //esdeveniment tancar modal
+            document.getElementById("tancarModal").addEventListener("click", function () {
+                // Quan es fa clic al botó de tancar, amaguem el modal
+                const modal = document.getElementById("qrModal");
+                modal.style.display = "none";  // El modal es fa invisible
+            });
         });
     </script>
 

@@ -28,11 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Has de seleccionar alguna opció.";
     }
 
-    if (empty($errors)) {
-    } else {
-        include "../vista/vistaCopiarPersonatge.php";
-    }
-} else {}
+    if (!empty($errors)) { echo "Has de seleccionar alguna opció."; }
+}
 
 function dadesPersonatge($idPersonatge) {
     return selectPersonatgePerId($idPersonatge);
