@@ -1,0 +1,45 @@
+/* Alba Matamoros Morales */
+
+/*---------------*/
+/*-- PAGINACIÓ --*/
+/*---------------*/
+
+section.paginacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+a.activat {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    text-decoration: none;
+    color: var(--colorBlanco);
+    background-color: var(--colorGrisOscuro); 
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+a.activat:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    background-color: var(--colorGrisClaro); 
+}
+
+a.desactivat, a.desactivado {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    text-decoration: none;
+    color: var(--colorGrisClaro);
+    background-color: var(--colorPrincipal); 
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    pointer-events: none; 
+}
+
+a.desactivat {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    font-weight: bold; 
+    color: var(--colorBlanco); 
+}

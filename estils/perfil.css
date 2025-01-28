@@ -1,0 +1,263 @@
+/* Alba Matamoros Morales */
+
+/* --------------------------- */
+/* --- PERFIL, TOTS ESTILS --- */
+/* --------------------------- */
+
+:root {
+    --google: #e23636;
+    --reddit: #ff7b00;
+}
+
+/* --------------------------------------- */
+/* Restablir contrasenya */
+
+.container-info {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container-info .boto {
+    margin-top: 20px;
+}
+
+.container-info p {
+    margin-top: 20px;
+}
+
+/* --------------------------------------- */
+/* Login, Registre */
+
+.recaptcha-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto 20px auto;
+}
+
+/* Missatge, no tens compte? */
+
+.container-general-perfil .msg-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.container-general-perfil .msg-info a {
+    text-decoration: none;
+    color: blue;
+    font-size: 14px;
+}
+
+.container-general-perfil .msg-info a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------- */
+/* General */
+
+.container-general-perfil {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-general-perfil h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para las etiquetas */
+.container-general-perfil label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.container-general-perfil input[type="text"],
+.container-general-perfil input[type="password"],
+.container-general-perfil input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.container-general-perfil input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container-general-perfil input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.container-general-perfil input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
+.info-container {
+    text-align: center;
+    margin: 10px 0;
+}
+/* --------------------------------------- */
+/* Administrar perfil */
+
+/* Imagen usuario */
+
+.avatar-user-perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.avatar-user-perfil:hover {
+    transform: scale(1.05);
+}
+
+.container-avatar-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --------------------------------------- */
+/* Administrar usuaris */
+
+.usuarios-container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.usuarios-titulo {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.usuarios-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.usuarios-tabla th,
+.usuarios-tabla td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.usuarios-tabla th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.usuarios-tabla tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.usuarios-tabla img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.usuarios-tabla a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #eee;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.usuarios-tabla a:hover {
+    background-color: #ddd;
+}
+
+/* ------------------------------- */
+/* Iconos Login */
+
+.container-iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0;
+    gap: 20px;
+}
+
+.icono-link {
+    text-decoration: none;
+}
+
+.icono-link i {
+    font-size: 55px;
+}
+
+.icono-link i:hover {
+    transform: scale(1.2);
+}
+
+.icono-link .fa-reddit {
+    color: var(--reddit);
+}
+
+.icono-link .fa-google-plus {
+    color: var(--google);
+}
+
+/* ------------------------------ */
+/* Recorda'm */
+
+.checkbox-recordam {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}

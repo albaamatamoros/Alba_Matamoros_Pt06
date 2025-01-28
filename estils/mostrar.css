@@ -1,0 +1,253 @@
+/* Alba Matamoros Morales */
+
+/* -------------------------------------------- */
+/* -- MOSTRAR PERSONATGES/ INDEX Y CONSULTAR --*/
+/* --------------------------------------------*/
+
+:root {
+    /* BOTONS */
+    /* Esborrar */
+    --botoEsborrar: #B70401;
+    --botoHoverEsborrar: #e00501;
+    /* Modificar */
+    --botoModificarCopiar: #072c38;
+    --botoHoverModificarCopiar: #014fe0;
+}
+
+section.blocPersonatges{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* BLOQUES DE PERSONAJES */
+/* Dades personatges */
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-personatges {
+    background-color: var(--colorBlanco);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    width: fit-content;
+    padding: 15px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--colorGrisOscuro);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 60px; 
+    white-space: normal;
+}
+
+/* Bloc de personatges */
+
+.personatges-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.personatge-box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    background-color: var(--colorBlanco);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    position: relative; 
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 200px; 
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.personatge-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+.personatge-nom {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: var(--colorGrisOscuro);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: center;
+}
+
+.personatge-cos {
+    font-size: 0.9rem;
+    color: var(--colorGrisClaro);
+    margin-bottom: 12px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.personatge-botons {
+    position: absolute;
+    bottom: 10px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    display: flex;
+    gap: 10px; 
+}
+
+.personatge-botons a {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: var(--colorBlanco);
+    width: 40px; 
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    text-decoration: none;
+}
+/* --------------------------------------- */
+/* BOTONES PARA BLOQUE DE PERSONAJES */
+
+/* Botons Esborrar/Copiar/Modificar */
+
+.eliminar-btn {
+    background-color: var(--botoEsborrar);
+}
+
+.eliminar-btn:hover {
+    background-color: var(--botoHoverEsborrar);
+}
+
+.modificar-btn {
+    background-color: var(--botoModificarCopiar);
+}
+
+.modificar-btn:hover {
+    background-color: var(--botoHoverModificarCopiar);
+}
+
+.copiar-btn {
+    background-color: var(--botoModificarCopiar);
+}
+
+.copiar-btn:hover {
+    background-color: var(--botoHoverModificarCopiar);
+}
+
+/* --------------------------------------- */
+/* BOTONES PEQUEÑOS ORDENACIÓN Y PERSONAJES POR PAGINA */
+
+/* Boton seleccionar personajes por pagina */
+/* 5, 10, 15, 20 */
+
+.selectPersonatge {
+    margin-top: 15px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    z-index: 10;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.selectPersonatge select {
+    color: var(--colorBlanco);
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--colorGrisOscuro);
+    background-color: var(--colorGrisOscuro);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Boton ordenar personajes */
+/* ASC, DESC */
+
+.selectPersonatgeOrdenacio {
+    margin-top: 15px;
+    position: absolute;
+    top: 200px;
+    right: 200px;
+    z-index: 10;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.selectPersonatgeOrdenacio select {
+    color: var(--colorBlanco);
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--colorGrisOscuro);
+    background-color: var(--colorGrisOscuro);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Transición suave para cambios */
+}
+
+/* --------------------------------------- */
+/* BARRA DE BUSQUEDA */
+
+/* Boton y Input */
+
+.search-bar-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.search-form {
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--colorBlanco);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input escribir - CERCA - */
+
+.search-input {
+    background-color: var(--colorBlanco);
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-input:focus {
+    width: 250px;
+}
+
+.search-input:hover {
+    background-color: var(--border);
+}
+
+/* Boton lupa - BUSCAR - */
+
+.search-button {
+    background-color: var(--colorPrincipal); 
+    color: var(--colorPrincipal);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: var(--colorSecundari);
+}

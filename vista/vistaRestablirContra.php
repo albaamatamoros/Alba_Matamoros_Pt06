@@ -4,11 +4,12 @@
     <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estils/estilPerfil.css">
-    <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilError.css">
+    <link rel="stylesheet" href="../estils/perfil.css">
+    <link rel="stylesheet" href="../estils/general.css">
+    <link rel="stylesheet" href="../estils/errors.css">
     <title>Registrar-se</title>
 </head>
+<body>
     <?php
         //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
         if (session_status() === PHP_SESSION_NONE) {
@@ -23,7 +24,6 @@
             unset($_SESSION['token']);
         }
     ?>
-<body>
     <nav>
         <!------------------------>
         <!-- BARRA DE NAVEGACIÓ -->
@@ -35,6 +35,9 @@
             <!-- Botó activat amb l'inici de sessió fet "GESTIÓ DE PERSONATGES" -->
             <?php if(isset($_SESSION["loginId"])) {
                 echo ' <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a> ';
+            } ?>
+            <?php if(isset($_SESSION["loginId"])) {
+                echo ' <a href="../vista/vistaApiPersonatges.php">GRAND LINE</a> ';
             } ?>
         </div>
 
@@ -72,23 +75,25 @@
             </div>
         </div>
     </nav>
-    
-    <!-- BODY -->
-    <?php if (isset($_SESSION['correcte'])): ?>
-        <div class="container">
-            <h2>CONTRASENYA MODIFICADA</h2>
-            <p>La contrasenya s'ha modificat correctament.</p>
-            <div>
-                <button class="btn" onclick="location.href='../controlador/controladorTancarSessio.php'" type="button" class="btn">Tornar</button> 
+    <div class="content">
+        <!-- BODY -->
+        <?php if (isset($_SESSION['correcte'])): ?>
+            <div class="container-info">
+                <h2>CONTRASENYA MODIFICADA</h2>
+                <p>La contrasenya s'ha modificat correctament.</p>
+                <div>
+                    <button class="boto" onclick="location.href='../controlador/controladorTancarSessio.php'" type="button">Tornar</button> 
+                </div>
             </div>
-        </div>
-    <?php elseif ((isset($_SESSION['caducat']))): ?>
-        <div class="container">
-            <h2>L'ENLLAÇ A EXPIRAT</h2>
-            <p>Si us plau, torna a sol·licitar el canvi de contrasenya si vols continuar amb l'operació "canvi de contrasenya".</p>
-            <div>
-                <button class="btn" onclick="location.href='../controlador/controladorTancarSessio.php'" type="button" class="btn">Tornar</button> 
+        <?php elseif ((isset($_SESSION['caducat']))): ?>
+            <div class="container-info">
+                <h2>L'ENLLAÇ A EXPIRAT</h2>
+                <p>Si us plau, torna a sol·licitar el canvi de contrasenya si vols continuar amb l'operació "canvi de contrasenya".</p>
+                <div>
+                    <button class="boto" onclick="location.href='../controlador/controladorTancarSessio.php'" type="button">Tornar</button> 
+                </div>
             </div>
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
 </body>
 </html>

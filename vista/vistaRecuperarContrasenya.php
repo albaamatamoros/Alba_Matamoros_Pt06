@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estils/estilPerfil.css">
-    <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilError.css">
+    <link rel="stylesheet" href="../estils/perfil.css">
+    <link rel="stylesheet" href="../estils/general.css">
+    <link rel="stylesheet" href="../estils/errors.css">
     <title>Recuperar Contraseña</title>
 </head>
 <body>
@@ -40,21 +40,23 @@
         </div>
     </nav>
 
-    <!-- BODY -->
-    <div class="login-container">
-        <form action="../controlador/controladorAdministrarPerfil.php" method="post">
-            <h2>Heu oblidat la contrasenya?</h2>
-            <div class="info-container">
-                            <p>Si us plau, introdueix l'adreça de correu electrònic que vas utilitzar per a registrar-te.</p>
-                <p>T'enviarem un mail amb l'enllaç per començar amb el procés de recuperació.</p>
-            </div>
-            <label for="email">Introdueix el teu correu electrònic:</label>
-            <input type="email" id="email" name="email" required>
-            <input type="submit" name="action" value="Restablir Contrasenya">
+    <div class="content">
+        <!-- BODY -->
+        <div class="container-general-perfil">
+            <form action="../controlador/controladorAdministrarPerfil.php" method="post">
+                <h2>Heu oblidat la contrasenya?</h2>
+                <div class="info-container">
+                                <p>Si us plau, introdueix l'adreça de correu electrònic que vas utilitzar per a registrar-te.</p>
+                    <p>T'enviarem un mail amb l'enllaç per començar amb el procés de recuperació.</p>
+                </div>
+                <label for="email">Introdueix el teu correu electrònic:</label>
+                <input type="email" id="email" name="email" required>
+                <input type="submit" name="action" value="Restablir Contrasenya">
 
-            <!-- CONTROL D'ERRORS -->
-            <?php mostrarMissatge($errors, $correcte) ?>
-        </form>
+                <!-- CONTROL D'ERRORS -->
+                <?php mostrarMissatge($errors, $correcte) ?>
+            </form>
+        </div>
     </div>
 </body>
 </html>

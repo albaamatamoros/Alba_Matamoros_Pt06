@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/estils/estilBarra.css">
-    <link rel="stylesheet" href="/estils/estilError.css">
+    <link rel="stylesheet" href="/estils/general.css">
+    <link rel="stylesheet" href="/estils/errors.css">
     <title>Error 403</title>
 </head>
 <body>

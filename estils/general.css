@@ -1,0 +1,122 @@
+/* Alba Matamoros Morales */
+
+/* ---------------------------- */
+/* -- BARRA SUPERIOR/GENERAL --*/
+/* ----------------------------*/
+
+/* padding: 80px 0 0 0; */
+
+:root {
+    /* COLORS */
+    --colorPrincipal: #8D0801;
+    --colorSecundari: #B70401;
+    --colorBlanco: #F2F4F3;
+    --colorGrisOscuro: #232323;
+    --colorGrisClaro: #333333;
+    --border: #ccc;
+}
+
+/* ------------------------------- */
+/* CONTENT GLOBAL */
+
+body {
+    background-image: url("../vista/imatges/wallpaper2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    align-items: center;
+    height: 100vh;
+    padding: 80px 0 0 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    padding-top: 100px;
+    padding-bottom: 70px;
+}
+
+/* ------------------------------- */
+/* BARRA DE BUSQUEDA */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--colorPrincipal);
+    padding: 10px 20px;
+    color: var(--colorBlanco);
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--colorBlanco);
+    background-color: var(--colorPrincipal);
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+nav a:hover {
+    background-color: var(--colorSecundari);
+}
+
+nav .left {
+    display: flex;
+    gap: 15px;
+}
+
+nav .perfil {
+    position: relative;
+}
+
+nav .perfil .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--colorPrincipal);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 1);
+    z-index: 1;
+}
+
+nav .perfil:hover .dropdown-content {
+    display: block;
+}
+
+nav .perfil .dropdown-content a {
+    text-decoration: none;
+    color: var(--colorBlanco);
+    padding: 10px;
+    display: block;
+    background-color: var(--colorPrincipal);
+}
+
+nav .perfil .dropdown-content a:hover {
+    background-color: var(--colorSecundari);
+}
+
+/* ---------------------------------------- */
+/* USER IMAGEN */
+
+.perfil .user-avatar {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    vertical-align: middle;
+}

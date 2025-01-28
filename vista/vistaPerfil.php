@@ -4,9 +4,9 @@
     <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estils/estilPerfil.css">
-    <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilError.css">
+    <link rel="stylesheet" href="../estils/perfil.css">
+    <link rel="stylesheet" href="../estils/general.css">
+    <link rel="stylesheet" href="../estils/errors.css">
     <title>Perfil</title>
 </head>
 <body>
@@ -27,6 +27,7 @@
             <div class="left">
                 <a href='../index.php'>INICI</a>
                 <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a>
+                <a href="../vista/vistaApiPersonatges.php">GRAND LINE</a>
             </div>
 
             <!-- PERFIL -->
@@ -50,11 +51,11 @@
             </div>
         </nav>
 
-        <div class="login-container">
+        <div class="container-general-perfil">
             <h2>Administrar perfil</h2>
             <form action="../controlador/controladorAdministrarPerfil.php" method="POST" enctype="multipart/form-data">
-                <div class="login-container-user">
-                    <img src="<?php echo isset($_SESSION['loginImage']) ? $_SESSION['loginImage'] : "../vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="user-avatar2">
+                <div class="container-avatar-user">
+                    <img src="<?php echo isset($_SESSION['loginImage']) ? $_SESSION['loginImage'] : "../vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="avatar-user-perfil">
                 </div>
 
                 <label for="arxiu">Selecciona un arxiu:</label>

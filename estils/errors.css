@@ -4,11 +4,19 @@
 /* -- CONTROL D'ERRORS --*/
 /* ---------------------- */
 
+:root {
+    --errorBackground: #f8d7da;
+    --errorBorder: #920d1b;
+    --errorHover: #c11022;
+    --correcteBackground: #8be985;
+    --correcteBorder: #1f741a;
+}
+
 /* ERROR */
 .error-container {
-    background-color: #f8d7da;
-    color: black;
-    border: 1px solid #920d1b;
+    background-color: var(--errorBackground);
+    color: var(--colorGrisOscuro);
+    border: 1px solid var(--errorBorder);
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
@@ -20,9 +28,9 @@
 
 /* CORRECTE */
 .success-container {
-    background-color: #8be985;
-    color: black;
-    border: 1px solid #1f741a;
+    background-color: var(--correcteBackground);
+    color: var(--colorGrisOscuro);
+    border: 1px solid var(--correcteBorder);
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
@@ -50,10 +58,9 @@
 
 /* ESTIL PÀGINA ERROR 404 */
 
-/* Estilos específicos para el contenedor de error */
 .error-container-pagina {
-    background-color: #ffebee;
-    border-color: #ff1744;
+    background-color: var(--colorBlanco);
+    border-color: var(--errorBackground);
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
@@ -64,66 +71,58 @@
     animation: slideUp 0.8s ease-out;
 }
 
-/* Animación para el contenedor de error (subir desde abajo) */
 @keyframes slideUp {
     0% { transform: translateY(30px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Estilos para el título dentro del contenedor de error */
 .error-container-pagina h1 {
     font-size: 100px;
     margin-bottom: 15px;
-    color: #ff1744;
+    color: var(--errorBackground);
     font-weight: bold;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-    animation: jump 1s ease-in-out infinite; /* Animación de salto */
+    animation: jump 1s ease-in-out infinite;
 }
 
-/* Animación de salto para el título */
 @keyframes jump {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
 
-/* Estilos para el párrafo dentro del contenedor de error */
 .error-container-pagina p {
     font-size: 18px;
-    color: #444;
+    color: var(--colorGrisOscuro);
     margin-bottom: 25px;
     font-weight: 300;
     animation: fadeInUp 1.2s ease-out;
 }
 
-/* Animación para el párrafo (aparecer desde abajo) */
 @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(30px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Estilos del botón dentro del contenedor de error */
 .error-container-pagina a {
     position: relative;
     display: inline-block;
     padding: 14px 30px;
     font-size: 18px;
-    color: white;
-    background-color: #333;
+    color: var(--colorBlanco);
+    background-color: var(--colorGrisOscuro);
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.3s ease;
 }
 
-/* Efecto de hover en el botón dentro del contenedor de error */
 .error-container-pagina a:hover {
-    background-color: #ff1744;
-    transform: scale(1.05); /* Efecto de escala en hover */
+    background-color: var(--errorHover);
+    transform: scale(1.05);
 }
 
-/* Efecto de clic en el botón dentro del contenedor de error */
 .error-container-pagina a:active {
-    background-color: #d50000;
-    transform: scale(0.98); /* Efecto de presionado */
+    background-color: var(--errorBorder);
+    transform: scale(0.98);
 }
 

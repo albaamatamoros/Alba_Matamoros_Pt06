@@ -4,11 +4,12 @@
     <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estils/estilPerfil.css">
-    <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilError.css">
+    <link rel="stylesheet" href="../estils/perfil.css">
+    <link rel="stylesheet" href="../estils/general.css">
+    <link rel="stylesheet" href="../estils/errors.css">
     <title>Registrar-se</title>
 </head>
+<body>
     <?php
         //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
         if (session_status() === PHP_SESSION_NONE) {
@@ -22,7 +23,6 @@
         $errors = isset($errors) ? $errors : [];
         $correcte = isset($correcte) ? $correcte : null;
     ?>
-<body>
     <nav>
         <!------------------------>
         <!-- BARRA DE NAVEGACIÓ -->
@@ -34,6 +34,7 @@
             <!-- Botó activat amb l'inici de sessió fet "GESTIÓ DE PERSONATGES" -->
             <?php if(isset($_SESSION["loginId"])): ?>
                 <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a>
+                <a href="../vista/vistaApiPersonatges.php">GRAND LINE</a>
             <?php endif; ?>
         </div>
 
@@ -71,53 +72,54 @@
             </div>
         </div>
     </nav>
-    
-    <!-- BODY -->
-    <?php if (isset($_SESSION['loginId'])): ?>
-        <div class="login-container">
-            <h2>Canviar Contrasenya</h2>
-            <form action="../controlador/controladorAdministrarPerfil.php" method="POST">
+    <div class="content">
+        <!-- BODY -->
+        <?php if (isset($_SESSION['loginId'])): ?>
+            <div class="container-general-perfil">
+                <h2>Canviar Contrasenya</h2>
+                <form action="../controlador/controladorAdministrarPerfil.php" method="POST">
 
-                <label for="contrasenya_actual">Contrasenya Actual:</label>
-                <input type="password" id="contrasenya_actual" name="contrasenya_actual">
+                    <label for="contrasenya_actual">Contrasenya Actual:</label>
+                    <input type="password" id="contrasenya_actual" name="contrasenya_actual">
 
-                <label for="nova_contrasenya">Nova Contrasenya:</label>
-                <input type="password" id="nova_contrasenya" name="nova_contrasenya">
+                    <label for="nova_contrasenya">Nova Contrasenya:</label>
+                    <input type="password" id="nova_contrasenya" name="nova_contrasenya">
 
-                <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
-                <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
+                    <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
+                    <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
 
-                <input type="submit" name="action" value="Canviar Contrasenya">
+                    <input type="submit" name="action" value="Canviar Contrasenya">
 
-                <!-- CONTROL D'ERRORS -->
-                <?php mostrarMissatge($errors, $correcte) ?>
-            </form>
-        </div>
-    <?php elseif (isset($_GET['token']) || (isset($_SESSION['token']))): ?>
-        <div class="login-container">
-            <h2>Canviar Contrasenya</h2>
-            <form action="../controlador/controladorAdministrarPerfil.php" method="POST">
+                    <!-- CONTROL D'ERRORS -->
+                    <?php mostrarMissatge($errors, $correcte) ?>
+                </form>
+            </div>
+        <?php elseif (isset($_GET['token']) || (isset($_SESSION['token']))): ?>
+            <div class="container-general-perfil">
+                <h2>Canviar Contrasenya</h2>
+                <form action="../controlador/controladorAdministrarPerfil.php" method="POST">
 
-                <label for="nova_contrasenya">Nova Contrasenya:</label>
-                <input type="password" id="nova_contrasenya" name="nova_contrasenya">
+                    <label for="nova_contrasenya">Nova Contrasenya:</label>
+                    <input type="password" id="nova_contrasenya" name="nova_contrasenya">
 
-                <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
-                <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
+                    <label for="confirmar_contrasenya">Confirmar Contrasenya:</label>
+                    <input type="password" id="confirmar_contrasenya" name="confirmar_contrasenya">
 
-                <?php if (isset($_GET['token'])): ?>
-                    <input type="hidden" name="token" value="<?php echo isset($_GET['token']) ? $_GET['token'] : ''; ?>">
-                <?php endif; ?>
+                    <?php if (isset($_GET['token'])): ?>
+                        <input type="hidden" name="token" value="<?php echo isset($_GET['token']) ? $_GET['token'] : ''; ?>">
+                    <?php endif; ?>
 
-                <?php if (isset($_SESSION['token'])): ?>
-                    <input type="hidden" name="token" value="<?php echo isset($_SESSION['token']) ? $_SESSION['token'] : ''; ?>">
-                <?php endif; ?>
+                    <?php if (isset($_SESSION['token'])): ?>
+                        <input type="hidden" name="token" value="<?php echo isset($_SESSION['token']) ? $_SESSION['token'] : ''; ?>">
+                    <?php endif; ?>
 
-                <input type="submit" name="action" value="Restablir">
+                    <input type="submit" name="action" value="Restablir">
 
-                <!-- CONTROL D'ERRORS -->
-                <?php mostrarMissatge($errors, $correcte) ?>
-            </form>
-        </div>
-    <?php endif; ?>
+                    <!-- CONTROL D'ERRORS -->
+                    <?php mostrarMissatge($errors, $correcte) ?>
+                </form>
+            </div>
+        <?php endif; ?>
+    </div>
 </body>
 </html>

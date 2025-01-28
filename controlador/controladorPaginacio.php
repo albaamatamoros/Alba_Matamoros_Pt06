@@ -68,7 +68,7 @@
         //Botons intermitjos, 1,2,3...
         for ($i = 1; $i <= $totalPagines; $i++ ){
             if ($i == $paginaActual){
-                $mostrarPaginacio .= sprintf("<a class='desactivado'>%d</a>", $i);
+                $mostrarPaginacio .= sprintf("<a class='desactivat'>%d</a>", $i);
             } else { $mostrarPaginacio .= sprintf("<a class='activat' href='%s?search=%s&pagina=%d'>%d</a>",$_SERVER['PHP_SELF'], $cerca, $i, $i); }
         }
 
@@ -106,8 +106,6 @@
             }
         }
         
-        
-
         if (!empty($personatges)) {
             foreach ($personatges as $personatge){
                 $mostrarPersonatges .= sprintf(
@@ -115,8 +113,12 @@
                         <h2 class="personatge-nom">%s</h2>
                         <p class="personatge-cos">%s</p>
                         <div class="personatge-botons">
-                            <a class="eliminar-btn" href="#" onclick="confirmarEsborrar(%s)">🗑️</a>
-                            <a class="modificar-btn" href="vista/vistaModificarDades.php?id_personatge=%s">✏️</a>
+                            <a class="eliminar-btn" href="#" onclick="confirmarEsborrar(%s)">
+                                <i class="fa-solid fa-trash" style="color:rgb(255, 119, 119);"></i>
+                            </a>
+                            <a class="modificar-btn" href="vista/vistaModificarDades.php?id_personatge=%s">
+                                <i class="fa-solid fa-pen" style="color: #74C0FC;"></i>
+                            </a>
                         </div>
                     </div>
                 ', $personatge['nom'], $personatge['cos'], $personatge['id_personatge'], $personatge['id_personatge']);
@@ -147,7 +149,7 @@
         //Botons intermitjos, 1,2,3...
         for ($i = 1; $i <= $totalPagines; $i++ ){
             if ($i == $paginaActual){
-                $mostrarPaginacio .= sprintf("<a class='desactivado'>%d</a>", $i);
+                $mostrarPaginacio .= sprintf("<a class='desactivat'>%d</a>", $i);
             } else { $mostrarPaginacio .= sprintf("<a class='activat' href='%s?search=%s&pagina=%d'>%d</a>",$_SERVER['PHP_SELF'], $cerca, $i, $i); }
         }
 
@@ -194,7 +196,9 @@
                             <h2 class="personatge-nom">%s</h2>
                             <p class="personatge-cos">%s</p>
                             <div class="personatge-botons">
-                                <a class="copiar-btn" href="../vista/vistaCopiarPersonatge.php?id_personatge=%s">📋</a>
+                                <a class="copiar-btn" href="../vista/vistaCopiarPersonatge.php?id_personatge=%s">
+                                    <i class="fa-solid fa-copy" style="color: #74C0FC;"></i>
+                                </a>
                             </div>
                         </div>
                     ', $personatge['nom'], $personatge['cos'], $personatge['id_personatge']);

@@ -4,9 +4,9 @@
     <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estils/estilPerfil.css">
-    <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilError.css">
+    <link rel="stylesheet" href="../estils/perfil.css">
+    <link rel="stylesheet" href="../estils/general.css">
+    <link rel="stylesheet" href="../estils/errors.css">
     <title>Registrar-se</title>
 </head>
 <body>
@@ -20,29 +20,27 @@
         $errors = isset($errors) ? $errors : [];
         $correcte = isset($correcte) ? $correcte : null;
     ?>
-    <div class="content">
-        <!-- HEADER -->
-        <nav>
-            <!-- INICI y GESTIÓ D'ARTICLES -->
-            <div class="left">
-                <a href='../index.php'>INICI</a>
-            </div>
+    <nav>
+        <!-- INICI y GESTIÓ D'ARTICLES -->
+        <div class="left">
+            <a href='../index.php'>INICI</a>
+        </div>
 
-            <!-- PERFIL -->
-            <div class="perfil">
-                <a> 
-                    <img src="../vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
-                    PERFIL 
-                </a>
-                <div class="dropdown-content">
-                    <a href='../vista/vistaLogin.php'>Iniciar sessió</a>
-                    <a href='../vista/vistaRegistrarse.php'>Registrar-se</a>
-                </div>
+        <!-- PERFIL -->
+        <div class="perfil">
+            <a> 
+                <img src="../vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
+                PERFIL 
+            </a>
+            <div class="dropdown-content">
+                <a href='../vista/vistaLogin.php'>Iniciar sessió</a>
+                <a href='../vista/vistaRegistrarse.php'>Registrar-se</a>
             </div>
-        </nav>
-        
+        </div>
+    </nav>
+    <div class="content">
         <!-- BODY -->
-        <div class="login-container">
+        <div class="container-general-perfil">
             <h2>Registrar-se</h2>
             <form action="../controlador/controladorRegistrar.php" method="POST">
                 <label for="nom">Nom:</label>
@@ -69,7 +67,7 @@
                 <input type="submit" name="action" value="Registrar-se">
             </form>
 
-            <div class="form-footer">
+            <div class="msg-info">
                 <p>Ja tens un compte? <a href="../vista/vistaLogin.php">Inicia sessió</a></p>
             </div>
         </div>

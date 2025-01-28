@@ -35,23 +35,19 @@
     <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estils/estilBarra.css">
-    <link rel="stylesheet" href="../estils/estilMostrar.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../estils/general.css">
+    <link rel="stylesheet" href="../estils/mostrar.css">
+    <link rel="stylesheet" href="../estils/paginacio.css">
     <title>Consultar personatges</title>
 </head>
 <body>
-    <?php
-        //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        if (!isset($_SESSION["loginId"])) { header("Location: ../vista/errors/vistaError403.php" );}
-    ?>
     <nav>
         <!-- INICI y GESTIÓ D'ARTICLES -->
         <div class="left">
             <a href='../index.php'>INICI</a>
             <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a>
+            <a href="../vista/vistaApiPersonatges.php">GRAND LINE</a>
         </div>
 
         <!-- PERFIL -->
@@ -75,63 +71,66 @@
         </div>
     </nav>
 
+    <!------------------------->
     <!-- MOSTRAR PERSONATGES -->
-    <section>
-        <!------------------------->
-            <!-- PERSONATGES GLOBALS -->
-            <!------------------------->
-            <!-- Tornem la consulta amb tots els peronatges globals -->
+    <!------------------------->
 
-            <div class="selectPersonatge">
-                <form action="" method="POST">
-                    <select name="select" onchange="this.form.submit()">
-                    <?php foreach([5, 10, 15, 20] as $num): ?>
-                        <option value="<?php echo $num; ?>" <?php if (isset($_COOKIE['personatgesCookie']) && $_COOKIE['personatgesCookie'] == $num) echo 'selected'; ?>>
-                            <?php echo $num; ?>
+    <section class="blocPersonatges">
+        <!------------------------->
+        <!-- PERSONATGES GLOBALS -->
+        <!------------------------->
+        <!-- Tornem la consulta amb tots els peronatges globals -->
+
+        <div class="selectPersonatge">
+            <form action="" method="POST">
+                <select name="select" onchange="this.form.submit()">
+                <?php foreach([5, 10, 15, 20] as $num): ?>
+                    <option value="<?php echo $num; ?>" <?php if (isset($_COOKIE['personatgesCookie']) && $_COOKIE['personatgesCookie'] == $num) echo 'selected'; ?>>
+                        <?php echo $num; ?>
+                    </option>
+                <?php endforeach; ?>
+                </select>
+            </form>
+        </div>
+
+        <div class="selectPersonatgeOrdenacio">
+            <form action="" method="POST">
+                <select name="selectOrdenacio" onchange="this.form.submit()">
+                    <?php foreach(["ASC", "DESC"] as $ordenacio): ?>
+                        <option value="<?php echo $ordenacio; ?>" <?php if (isset($_COOKIE['ordenacioCookie']) && $_COOKIE['ordenacioCookie'] == $ordenacio) echo 'selected'; ?>>
+                            <?php echo $ordenacio; ?>
                         </option>
                     <?php endforeach; ?>
-                    </select>
-                </form>
-            </div>
+                </select>
+            </form>
+        </div>
 
-            <div class="selectPersonatgeOrdenacio">
-                <form action="" method="POST">
-                    <select name="selectOrdenacio" onchange="this.form.submit()">
-                        <?php foreach(["ASC", "DESC"] as $ordenacio): ?>
-                            <option value="<?php echo $ordenacio; ?>" <?php if (isset($_COOKIE['ordenacioCookie']) && $_COOKIE['ordenacioCookie'] == $ordenacio) echo 'selected'; ?>>
-                                <?php echo $ordenacio; ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </form>
-            </div>
+        <!-- Titulo -->
+        <div class="titulo"> <h1 class="titulo-personatges">Llista de Personatges Global</h1></div>
+        
+        <!---------------->
+        <!-- SEARCH BAR -->
+        <!---------------->
+        <div class="search-bar-container">
+            <form method="GET" action="vistaConsultar.php" class="search-form">
+                <input type="search" name="search" placeholder="Cerca..." class="search-input" value="<?php echo $cerca; ?>"/>
+                <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass" style="color:rgb(255, 255, 255);"></i></button>
+            </form>
+        </div>
 
-            <!-- Titulo -->
-            <div class="titulo"> <h1 class="titulo-personatges">Llista de Personatges Global</h1></div>
-            
-            <!---------------->
-            <!-- SEARCH BAR -->
-            <!---------------->
-            <div class="search-bar-container">
-                <form method="GET" action="vistaConsultar.php" class="search-form">
-                    <input type="search" name="search" placeholder="Cerca..." class="search-input" value="<?php echo $cerca; ?>"/>
-                    <button type="submit" class="search-button">🔍</button>
-                </form>
-            </div>
+        <div class="personatges-container">
+            <!-- Paginación Global -->
+            <?php echo paginacioGlobal(); ?>
+        </div>
 
-            <div class="personatges-container">
-                <!-- Paginación Global -->
-                <?php echo paginacioGlobal(); ?>
-            </div>
-
-            <!-- PAGINACIÓ GLOBAL -->
-            <!-- Cridem a la funció que fa els càlculs i configura la paginació. -->
-            <section class="paginacio">
+        <!-- PAGINACIÓ GLOBAL -->
+        <!-- Cridem a la funció que fa els càlculs i configura la paginació. -->
+        <section class="paginacio">
             <div class="pagination">
                 <!-- Global -->
                 <?php echo retornarLinksGlobal(); ?>
             </div>
-            </section>
+        </section>
     </section>
 </body>
 </html>

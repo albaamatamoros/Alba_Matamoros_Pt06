@@ -38,8 +38,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ESTILS -->
-    <link rel="stylesheet" href="estils/estilBarra.css">
-    <link rel="stylesheet" href="estils/estilMostrar.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estils/general.css">
+    <link rel="stylesheet" href="estils/mostrar.css">
+    <link rel="stylesheet" href="estils/paginacio.css">
     <title>Inici</title>
     <!-- Script confirmació esborrar personatges -->
     <script>
@@ -53,59 +55,64 @@
         }
     </script>
 </head>
-<nav>
-    <!------------------------>
-    <!-- BARRA DE NAVEGACIÓ -->
-    <!------------------------>
+<body>
+    <nav>
+        <!------------------------>
+        <!-- BARRA DE NAVEGACIÓ -->
+        <!------------------------>
 
-    <!-- INICI y GESTIÓ D'ARTICLES -->
-    <div class="left">
-    <a href="index.php">INICI</a>
-        <!-- Botó activat amb l'inici de sessió fet "GESTIÓ DE PERSONATGES" -->
-        <?php if(isset($_SESSION["loginId"])) {
-            echo ' <a href="vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a> ';
-        } ?>
-    </div>
-
-    <!------------>
-    <!-- PERFIL -->
-    <!------------>
-    <div class="perfil">
-        <!-- Botons de perfil -->
-        <?php if (!isset($_SESSION['loginId'])): ?>
-            <a>
-                <img src="vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
-                PERFIL
-            </a>
-            <div class="dropdown-content">
-                <a href="vista/vistaLogin.php">Iniciar sessió</a>
-                <a href="vista/vistaRegistrarse.php">Registrar-se</a>
-        <?php else: ?>
-            <a>
-                <img src="<?php echo isset($_SESSION['loginImage']) ? substr($_SESSION['loginImage'], 1) : "vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="user-avatar">
-                <?php
-                    $nomUsuari = $_SESSION["loginUsuari"]; 
-                    echo $nomUsuari;
-                ?> 
-            </a>
-            <div class="dropdown-content">
-                <a href="vista/vistaPerfil.php">Administrar perfil</a>
-                <?php if (isset($_SESSION["loginAutentificacio"]) && $_SESSION["loginAutentificacio"] == ""): ?>
-                    <a href="vista/vistaCanviContra.php">Canviar contrasenya</a>
-                <?php endif; ?>
-                <?php if ($_SESSION["loginAdministrador"] == 1): ?>
-                    <a href="vista/vistaAdministrarUsuaris.php">Administrar usuaris</a>
-                <?php endif; ?>
-                <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
-            <?php endif; ?>
+        <!-- INICI y GESTIÓ D'ARTICLES -->
+        <div class="left">
+        <a href="index.php">INICI</a>
+            <!-- Botó activat amb l'inici de sessió fet "GESTIÓ DE PERSONATGES" -->
+            <?php if(isset($_SESSION["loginId"])) {
+                echo ' <a href="vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a> ';
+            } ?>
+            <?php if(isset($_SESSION["loginId"])) {
+                echo ' <a href="vista/vistaApiPersonatges.php">GRAND LINE</a> ';
+            } ?>
         </div>
-    </div>
-</nav>
-<body class="main-content">
+
+        <!------------>
+        <!-- PERFIL -->
+        <!------------>
+        <div class="perfil">
+            <!-- Botons de perfil -->
+            <?php if (!isset($_SESSION['loginId'])): ?>
+                <a>
+                    <img src="vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
+                    PERFIL
+                </a>
+                <div class="dropdown-content">
+                    <a href="vista/vistaLogin.php">Iniciar sessió</a>
+                    <a href="vista/vistaRegistrarse.php">Registrar-se</a>
+            <?php else: ?>
+                <a>
+                    <img src="<?php echo isset($_SESSION['loginImage']) ? substr($_SESSION['loginImage'], 1) : "vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="user-avatar">
+                    <?php
+                        $nomUsuari = $_SESSION["loginUsuari"]; 
+                        echo $nomUsuari;
+                    ?> 
+                </a>
+                <div class="dropdown-content">
+                    <a href="vista/vistaPerfil.php">Administrar perfil</a>
+                    <?php if (isset($_SESSION["loginAutentificacio"]) && $_SESSION["loginAutentificacio"] == ""): ?>
+                        <a href="vista/vistaCanviContra.php">Canviar contrasenya</a>
+                    <?php endif; ?>
+                    <?php if ($_SESSION["loginAdministrador"] == 1): ?>
+                        <a href="vista/vistaAdministrarUsuaris.php">Administrar usuaris</a>
+                    <?php endif; ?>
+                    <a href="./controlador/controladorTancarSessio.php">Tancar sessió</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </nav>
+
     <!------------------------->
     <!-- MOSTRAR PERSONATGES -->
     <!------------------------->
-    <section>
+    
+    <section class="blocPersonatges">
         <?php if (!isset($_SESSION['loginId'])): ?>
 
             <!------------------------->
@@ -146,7 +153,7 @@
             <div class="search-bar-container">
                 <form method="GET" action="index.php" class="search-form">
                     <input type="search" name="search" placeholder="Cerca..." class="search-input" value="<?php echo $cerca; ?>"/>
-                    <button type="submit" class="search-button">🔍</button>
+                    <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass" style="color:rgb(255, 255, 255);"></i></button>
                 </form>
             </div>
 
@@ -163,10 +170,10 @@
             <!-- PAGINACIÓ GLOBAL -->
             <!-- Cridem a la funció que fa els càlculs i configura la paginació. -->
             <section class="paginacio">
-            <div class="pagination">
-                <!-- Global -->
-                <?php echo retornarLinksGlobal(); ?>
-            </div>
+                <div class="pagination">
+                    <!-- Global -->
+                    <?php echo retornarLinksGlobal(); ?>
+                </div>
             </section>
 
         <?php else: ?>
@@ -197,7 +204,7 @@
             <div class="search-bar-container">
                 <form method="GET" action="index.php" class="search-form">
                     <input type="search" name="search" placeholder="Cerca..." class="search-input" value="<?php echo $cerca; ?>"/>
-                    <button type="submit" class="search-button">🔍</button>
+                    <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass" style="color:rgb(255, 255, 255);"></i></button>
                 </form>
             </div>
 
