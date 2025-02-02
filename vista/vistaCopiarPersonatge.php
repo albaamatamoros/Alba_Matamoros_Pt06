@@ -95,33 +95,11 @@
                 </div>
                 <!-- Botón para iniciar la lectura -->
                 <button type="button" id="startReader" class="boto">Llegir QR</button>
+                <a id="descarregarQR" href="" download="qr.png" style="display: none;">Descarregar QR</a>qr.png
                 <div id="qr-reader" style="width: 300px; margin-top: 10px;"></div>
                 <p id="readResult"></p>
             </div>
         </div>
-
-        <script>
-            // Leer QR desde cámara (no desde archivo)
-            document.getElementById('startReader').addEventListener('click', function () {
-                const resultDiv = document.getElementById("readResult");
-                const qrReader = new Html5Qrcode("qr-reader");
-
-                // Iniciar el lector de QR
-                qrReader.start({ facingMode: "environment" }, {
-                    fps: 10, // Frames por segundo
-                    qrbox: 250 // Tamaño del área de escaneo
-                }, (decodedText, decodedResult) => {
-                    // Mostrar el texto decodificado
-                    resultDiv.innerHTML = `Contenido del QR: ${decodedText}`;
-                }, (errorMessage) => {
-                    // Manejo de errores de escaneo
-                    resultDiv.innerText = "No se ha detectado ningún QR. Inténtalo de nuevo.";
-                }).catch(err => {
-                    // Error al iniciar el lector
-                    resultDiv.innerText = "Error al iniciar el lector de QR.";
-                });
-            });
-        </script>
 
         <script>
             document.getElementById("generateQR").addEventListener("click", function () {
