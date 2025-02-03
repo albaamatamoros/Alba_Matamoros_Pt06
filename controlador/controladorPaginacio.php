@@ -14,6 +14,11 @@
     //guardar els personatges per pagina.
     define("PERSONATGES_PER_PAGINA", isset($_COOKIE["personatgesCookie"]) ? $_COOKIE["personatgesCookie"] : 5);
 
+    if (!isset($_COOKIE['ordenacioCookie'])) {
+        setcookie("ordenacioCookie", "ASC", time() + 0, "/");
+        $_COOKIE['ordenacioCookie'] = "ASC";
+    }
+
     //-----------------------------------------
     //PAGINA ACTUAL + CALCUL PAGINES TOTALS.
     //Si es null, la pagina per defecte sera 1.

@@ -47,3 +47,12 @@
 .close:hover {
     color: #000;
 }
+
+.modalText p {
+    text-align: center;
+}
+
+.modalText a {
+    text-align: center;
+    display: block;
+}

@@ -18,4 +18,17 @@
             echo '</div>';
         }
     }
+
+    function mostrarMissatgeError($errors = []) {
+        if (!empty($errors)) {
+            echo '<div class="alert error-container">';
+            echo '<span class="alert-icon error-icon">⚠️</span>';
+            echo '<div>';
+            foreach ($errors as $error) {
+                echo '<p class="alert-text error-message">' . htmlspecialchars($error) . '</p>';
+            }
+            echo '</div>';
+            echo '</div>';
+        }
+    }
 ?>

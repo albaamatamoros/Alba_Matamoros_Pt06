@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../estils/errors.css">
     <link rel="stylesheet" href="../estils/modal.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <title>Copiar Personatge</title>
     <!-- AJAX -->
 </head>
@@ -38,6 +37,7 @@
             </a>
             <div class="dropdown-content">
                 <a href="../vista/vistaPerfil.php">Administrar perfil</a>
+                <a href="../vista/vistaLectorQR.php">Lector QR</a>
                 <?php if (empty($_SESSION["loginAutentificacio"])) : ?>
                     <a href="../vista/vistaCanviContra.php">Canviar contrasenya</a>
                 <?php endif; ?>
@@ -90,13 +90,12 @@
             <div class="modal-content">
                 <span class="close" id="tancarModal">&times;</span>
                 <div id="modalText">
-                    <!-- Aquí aparecerá el QR generado -->
                     <img id="qrImage" src="" alt="Código QR" style="display: none;" />
                 </div>
-                <!-- Botón para iniciar la lectura -->
-                <button type="button" id="startReader" class="boto">Llegir QR</button>
-                <a id="descarregarQR" href="" download="qr.png" style="display: none;">Descarregar QR</a>qr.png
-                <div id="qr-reader" style="width: 300px; margin-top: 10px;"></div>
+                <div class="modalText">
+                    <p>Guarda't l'imatge QR i dirigeix-te al lector de QR's</p>
+                    <a id="qrLink" href="../vista/vistaLectorQR.php">Anar al lector de QRs</a>
+                </div>
                 <p id="readResult"></p>
             </div>
         </div>
@@ -105,19 +104,19 @@
             document.getElementById("generateQR").addEventListener("click", function () {
 
             const modal = document.getElementById("qrModal");
-            modal.style.display = "flex";  // El modal es fa visible
+            modal.style.display = "flex";
 
             // Creem un objecte FormData per recollir totes les dades del formulari
             const form = document.getElementById("qrForm");
             const formData = new FormData(form);
 
-            // Enviem les dades al servidor amb una petició AJAX utilitzant fetch
+            // Enviem les dades al servidor amb una petició AJAX utilitzant fetch.
             fetch("../controlador/controladorCopiarPersonatge.php", {
                 method: "POST",
                 body: formData
             })
 
-            // Quan el servidor respongui, executarem aquesta funció
+            // Quan el servidor respongui, executarem aquesta funció.
             .then(response => response.text())
                 .then(data => {
                     //Actualitzem el contingut del modal
@@ -133,9 +132,8 @@
             document.addEventListener("DOMContentLoaded", function () {
                 //esdeveniment tancar modal
                 document.getElementById("tancarModal").addEventListener("click", function () {
-                    // Quan es fa clic al botó de tancar, amaguem el modal
                     const modal = document.getElementById("qrModal");
-                    modal.style.display = "none";  // El modal es fa invisible
+                    modal.style.display = "none";
                 });
             });
         </script>

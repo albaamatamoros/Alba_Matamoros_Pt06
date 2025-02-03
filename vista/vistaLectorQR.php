@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Alba Matamoros Morales -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../estils/menu.css">
+    <link rel="stylesheet" href="../estils/perfil.css">
     <link rel="stylesheet" href="../estils/general.css">
     <link rel="stylesheet" href="../estils/errors.css">
-    <title>Esborrar Article</title>
+    <title>Lector QR</title>
 </head>
 <body>
-    <?php
-        //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
+    <?php //Verificar si la sessió no està activa. (Comprovació perquè no s'intenti accedir mitjançant ruta).
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
         if (!isset($_SESSION["loginId"])) { header("Location: ../vista/errors/vistaError403.php" );}
+
         require_once "../controlador/controladorErrors.php";
 
         $errors = isset($errors) ? $errors : [];
         $correcte = isset($correcte) ? $correcte : null;
+        $qr = isset($qr) ? $qr : null;
     ?>
     <nav>
         <!-- INICI y GESTIÓ D'ARTICLES -->
@@ -50,26 +50,27 @@
             </div>
         </div>
     </nav>
-    <div class="content">
-        <!-- ESBORRAR PERSONATGE -->
-        <div class="container-accio">
-            <h1>ESBORRAR PERSONATGE</h1>
+    <div class="container-lectorQR">
+        <h1>Lector QR</h1>
+        <p class="QR">Escaneja el codi QR per a obtenir la informació del personatge</p>
+        <form action="../controlador/controladorLectorQR.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="imatgeQR" accept="image/*" required>
 
-            <form action="../controlador/controladorEsborrar.php" method="POST">
+            <!-- CONTROL D'ERRORS -->
+            <?php mostrarMissatgeError($errors) ?>
 
-                <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom"/>
+            <button type="submit">Llegir QR</button>
 
-                <!-- CONTROL D'ERRORS -->
-                <?php mostrarMissatge($errors, $correcte) ?>
-
-                <!-- ESBORRAR -->
-                <div class="container-grup-botons">
-                <input type="submit" name="action" value="Esborrar" class="boto"/>
-                    <button onclick="location.href='../vista/vistaMenu.php'" type="button" class="boto">Tornar</button> 
+            <?php if (!empty($linkQR)): ?>
+                <div class="container-QR">
+                    <?php if (!empty($linkQR)): ?>
+                        <button type="button" onclick="window.location.href='<?php echo htmlspecialchars($linkQR); ?>'">
+                            Copiar personatge
+                        </button>
+                    <?php endif; ?>
                 </div>
-            </form>
-        </div>
+            <?php endif; ?>
+        </form>
     </div>
 </body>
 </html>
