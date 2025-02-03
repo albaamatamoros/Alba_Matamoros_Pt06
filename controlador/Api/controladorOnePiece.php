@@ -1,5 +1,5 @@
 <?php
-    function getAllCharacters($filtre) {
+    function getAllCharacters() {
         $apiOnePiece = "https://api.api-onepiece.com/v2/characters/en";
         $totalPersonatges = [];
     
@@ -14,16 +14,33 @@
                 'fruit' => isset($character['fruit']['name']) ? $character['fruit']['name'] : 'Sense fruita'
             ];
         }, $data);
+    
+        return $totalPersonatges;
+    }
 
-        if ($filtre) {
+    function getPersonatgesMarina($filtre) {
+        $totalPersonatges = getAllCharacters();
+
+        if ($filtre === "Marine") {
             $totalPersonatges = array_filter($totalPersonatges, function($character) use ($filtre) {
                 return strpos(strtolower($character['crew']), strtolower($filtre)) !== false;
             });
         }
-    
+
         return $totalPersonatges;
     }
-    
+
+    function getPersonatgesPirates($filtre) {
+        $totalPersonatges = getAllCharacters();
+
+        if ($filtre === "Pirates") {
+            $totalPersonatges = array_filter($totalPersonatges, function($character) {
+                return ($character['bounty']) !== 'Sense Recompensa';
+            });
+        }
+
+        return $totalPersonatges;
+    }
 
     function mostrarPersonatges($characters) {
         echo "<div class='container-personatges-api'>";  // Contenedor para las fichas

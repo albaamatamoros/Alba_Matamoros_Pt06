@@ -84,12 +84,12 @@
                     <img src="../vista/imatges/Marine.webp">
                 </a>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <h2>API PROPIA</h2>
                 <a href="../vista/vistaApiPersonatges.php?boto_seleccionat=api_propia">
                     <img src="../vista/imatges/Propi.jpg">
                 </a>
-            </div>
+            </div> -->
             <div class="card">
                 <h2>PERSONATGES</h2>
                 <a href="../vista/vistaApiPersonatges.php?boto_seleccionat=personatges">
@@ -105,26 +105,30 @@
                     switch ($botoSeleccionat) {
                         case 'pirates':
                             echo '<div class="titolsApi"><h2>PIRATES</h2></div>';
-                            break;
-                        case 'marina':
-                            echo '<div class="titolsApi"><h2>MARINA</h2></div>';
-                            $totsElsPersonatges = getAllCharacters("Marine");
-                
+                            $totsElsPersonatges = getPersonatgesPirates("Pirates");
                             if (empty($totsElsPersonatges)) {
-                                echo "<p>No se encontraron personajes o hubo un problema con la API.</p>";
+                                echo "<p>No s'han trobat dades o hi ha hagut un problema amb l'API.</p>";
                             } else {
                                 mostrarPersonatges($totsElsPersonatges);
                             }
                             break;
-                        case 'api_propia':
-                            echo '<div class="titolsApi"><h2>API PROPIA</h2></div>';
+                        case 'marina':
+                            echo '<div class="titolsApi"><h2>MARINA</h2></div>';
+                            $totsElsPersonatges = getPersonatgesMarina("Marine");
+                            if (empty($totsElsPersonatges)) {
+                                echo "<p>No s'han trobat dades o hi ha hagut un problema amb l'API.</p>";
+                            } else {
+                                mostrarPersonatges($totsElsPersonatges);
+                            }
                             break;
+                        // case 'api_propia':
+                        //     echo '<div class="titolsApi"><h2>API PROPIA</h2></div>';
+                        //     break;
                         case 'personatges':
                             echo '<div class="titolsApi"><h2>TOTS ELS PERSONATGES</h2></div>';
                             $totsElsPersonatges = getAllCharacters("");
-                
                             if (empty($totsElsPersonatges)) {
-                                echo "<p>No se encontraron personajes o hubo un problema con la API.</p>";
+                                echo "<p>No s'han trobat dades o hi ha hagut un problema amb l'API.</p>";
                             } else {
                                 mostrarPersonatges($totsElsPersonatges);
                             }
