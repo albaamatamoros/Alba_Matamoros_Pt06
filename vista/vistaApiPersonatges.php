@@ -32,7 +32,7 @@
                 echo ' <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a> ';
             } ?>
             <?php if(isset($_SESSION["loginId"])) {
-                echo ' <a href="../vista/vistaMenu.php">GRAND LINE</a> ';
+                echo ' <a href="../vista/vistaMenu.php">ARXIU PIRATA</a> ';
             } ?>
         </div>
 

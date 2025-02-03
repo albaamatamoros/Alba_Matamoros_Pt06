@@ -31,7 +31,7 @@
         <div class="left">
             <a href='../index.php'>INICI</a>
             <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a>
-            <a href="../vista/vistaApiPersonatges.php">GRAND LINE</a>
+            <a href="../vista/vistaApiPersonatges.php">ARXIU PIRATA</a>
         </div>
 
         <!-- PERFIL -->

@@ -34,7 +34,7 @@
             <!-- Botó activat amb l'inici de sessió fet "GESTIÓ DE PERSONATGES" -->
             <?php if(isset($_SESSION["loginId"])): ?>
                 <a href="../vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a>
-                <a href="../vista/vistaApiPersonatges.php">GRAND LINE</a>
+                <a href="../vista/vistaApiPersonatges.php">ARXIU PIRATA</a>
             <?php endif; ?>
         </div>
 

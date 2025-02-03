@@ -69,7 +69,7 @@
                 echo ' <a href="vista/vistaMenu.php">GESTIÓ DE PERSONATGES</a> ';
             } ?>
             <?php if(isset($_SESSION["loginId"])) {
-                echo ' <a href="vista/vistaApiPersonatges.php">GRAND LINE</a> ';
+                echo ' <a href="vista/vistaApiPersonatges.php">ARXIU PIRATA</a> ';
             } ?>
         </div>
 
