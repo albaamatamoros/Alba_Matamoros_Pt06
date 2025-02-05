@@ -75,13 +75,7 @@
                             $_SESSION["loginCorreu"] = $result["correu"];
                             $_SESSION["loginNom"] = $result["nom"];
                             $_SESSION["loginCognom"] = $result["cognoms"];
-
-                            if (is_null($result["imatge"]) || !file_exists($result["imatge"])) {
-                                $_SESSION["loginImage"] = "../vista/imatges/imatgesUsers/defaultUser.jpg";
-                            } else {
-                                $_SESSION["loginImage"] = $result["imatge"];
-                            }
-
+                            $_SESSION["loginImage"] = $result["imatge"];
                             $_SESSION["loginAdministrador"] = $result["administrador"];
                             $_SESSION["loginAutentificacio"] = $result["autentificacio"];
                             header("Location: ../index.php");
