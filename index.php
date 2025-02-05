@@ -96,6 +96,7 @@
                 </a>
                 <div class="dropdown-content">
                     <a href="vista/vistaPerfil.php">Administrar perfil</a>
+                    <a href="vista/vistaLectorQR.php">Lector QR</a>
                     <?php if (isset($_SESSION["loginAutentificacio"]) && $_SESSION["loginAutentificacio"] == ""): ?>
                         <a href="vista/vistaCanviContra.php">Canviar contrasenya</a>
                     <?php endif; ?>

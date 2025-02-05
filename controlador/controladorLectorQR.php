@@ -37,7 +37,7 @@
                 $errors[] = "El codi QR no és vàlid.";
                 $linkQR = "";
             } else {
-                // Comprovem si l'enllaç QR comença amb "http://localhost/Practiques/Alba_Matamoros_Pt06" (la teva url personalitzada)
+                // Comprovem si l'enllaç QR comença amb "http://localhost/Practiques/Alba_Matamoros_Pt06"
                 if (strpos($linkQR, "http://localhost/Practiques/Alba_Matamoros_Pt06") === 0) {
                     header("Location: " . $linkQR);
                     exit;
