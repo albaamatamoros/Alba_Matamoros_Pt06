@@ -80,7 +80,7 @@
             <!-- Botons de perfil -->
             <?php if (!isset($_SESSION['loginId'])): ?>
                 <a>
-                    <img alt="Imatge perfil usuari" src="vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
+                    <img src="vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
                     PERFIL
                 </a>
                 <div class="dropdown-content">
@@ -88,7 +88,7 @@
                     <a href="vista/vistaRegistrarse.php">Registrar-se</a>
             <?php else: ?>
                 <a>
-                    <img alt="Imatge perfil usuari" src="<?php echo isset($_SESSION['loginImage']) ? substr($_SESSION['loginImage'], 1) : "vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="user-avatar">
+                    <img src="<?php echo isset($_SESSION['loginImage']) ? substr($_SESSION['loginImage'], 1) : "vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="user-avatar">
                     <?php
                         $nomUsuari = $_SESSION["loginUsuari"]; 
                         echo $nomUsuari;
