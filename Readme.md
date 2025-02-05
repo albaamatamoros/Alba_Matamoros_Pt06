@@ -2,6 +2,11 @@
 # Pràctica 06 - APIRest, Ajax i codis QR
 Si vols fer proves amb usuaris ja creats tots tenen el pasword = P@ssw0rd
 
+ddb237716.sql (Alba Matamoros bd)
+
+Modificació al php.ini XAMP ->
+Descomentar la linea "extension=gd".
+
 # Taula d'usuaris i contrasenyes
 
 | **Usuari**      | **Rol**      | **Contrasenya**  |
