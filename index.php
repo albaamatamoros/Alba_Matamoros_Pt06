@@ -80,7 +80,7 @@
             <!-- Botons de perfil -->
             <?php if (!isset($_SESSION['loginId'])): ?>
                 <a>
-                    <img src="vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
+                    <img alt="Imatge perfil usuari" src="vista/imatges/imatgesUsers/defaultUser.jpg" class="user-avatar">
                     PERFIL
                 </a>
                 <div class="dropdown-content">
@@ -88,7 +88,7 @@
                     <a href="vista/vistaRegistrarse.php">Registrar-se</a>
             <?php else: ?>
                 <a>
-                    <img src="<?php echo isset($_SESSION['loginImage']) ? substr($_SESSION['loginImage'], 1) : "vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="user-avatar">
+                    <img alt="Imatge perfil usuari" src="<?php echo isset($_SESSION['loginImage']) ? substr($_SESSION['loginImage'], 1) : "vista/imatges/imatgesUsers/defaultUser.jpg" ; ?>" class="user-avatar">
                     <?php
                         $nomUsuari = $_SESSION["loginUsuari"]; 
                         echo $nomUsuari;
@@ -152,8 +152,11 @@
 
             <div class="search-bar-container">
                 <form method="GET" action="index.php" class="search-form">
+                    <label for="search" class="search-label">Cerca:</label>
                     <input type="search" name="search" placeholder="Cerca..." class="search-input" value="<?php echo $cerca; ?>"/>
-                    <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass" style="color:rgb(255, 255, 255);"></i></button>
+                    <button type="submit" class="search-button">
+                        <i class="fa-solid fa-magnifying-glass" style="color:rgb(255, 255, 255);"></i>
+                    </button>
                 </form>
             </div>
 

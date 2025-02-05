@@ -1,5 +1,5 @@
 <!-- Alba Matamoros Morales -->
-# Pràctica 05 - Social Authentication & Miscel·lània
+# Pràctica 06 - APIRest, Ajax i codis QR
 Si vols fer proves amb usuaris ja creats tots tenen el pasword = P@ssw0rd
 
 # Taula d'usuaris i contrasenyes
@@ -12,7 +12,7 @@ Si vols fer proves amb usuaris ja creats tots tenen el pasword = P@ssw0rd
 | nouusuari1      | Usuari       | P@ssw0rd         |
 | nouusuari2      | Usuari       | P@ssw0rd         |
 
-La temàtica de la meva pàgina és "Personatges de One piece", els usuaris han d'introduir tots els personatges existents actualment, cada usuari fa la seva aportació sense repetir l'usuari inserit per altra persona.
+La temàtica de la meva pàgina és "Personatges de One piece", els usuaris han d'introduir tots els personatges existents actualment, cada usuari fa la seva aportació sense repetir el personatge inserit per altra persona.
 
 ## Descripció del Projecte
 
@@ -20,28 +20,35 @@ Aquest projecte és una aplicació web que permet als usuaris autenticar-se util
 
 ## Estructura
 - **`controlador`**
+  - `Api`
+    - `controladorOnePiece.php`
   - `HybridAuthC`
     - `callbackReddit.php`
   - `OAuth`
     - `callbackGoogle.php`
   - `controladorAdministrarPerfil.php`
+  - `controladorCopiarPersonatge.php`
   - `controladorErrors.php`
   - `controladorEsborrar.php`
   - `controladorInsertar.php`
-  - `controladorEditarPerfil.php`
+  - `controladorLectorQR.php`
+  - `controladorLogin.php`
   - `controladorModificar.php`
   - `controladorModificarDades.php`
   - `controladorPaginacio.php`
   - `controladorRegistrar.php`
   - `controladorTancarSessio.php`
 - **`estils`**
-    - `estilBarra.css`
-    - `estilError.css`
-    - `estilMenuPersonatges.css`
-    - `estilMostrar.css`
-    - `estilPerfil.css`
-    - `estilPersonatges.css`
+    - `errors.css`
+    - `general.css`
+    - `menu.css`
+    - `modal.css`
+    - `mostrar.css`
+    - `paginacio.css`
+    - `perfil.css`
+    - `proves.css`
 - **`lib`**
+    - `chillerlan`
     - `HybridAuth`
         - `configReddit.php`
     - `OAuth`
@@ -54,10 +61,13 @@ Aquest projecte és una aplicació web que permet als usuaris autenticar-se util
     - `modelUsuaris.php`
 - **`vista`**
     - `vistaAdministrarUsuaris.php`
+    - `vistaApiPersonatges.php`
     - `vistaCanviContra.php`
     - `vistaConsultar.php`
+    - `vistaCopiPersonatges.php`
     - `vistaEsborrar.php`
     - `vistaInserir.php`
+    - `vistaLectorQR.php`
     - `vistaLogin.php`
     - `vistaMenu.php`
     - `vistaModificar.php`
@@ -76,38 +86,24 @@ Aquest projecte és una aplicació web que permet als usuaris autenticar-se util
 
 # Funcionalitats del Projecte
 
-## 1. **Recuperació/canvi de contrasenya**
-- **Recuperació de contrasenya**: Implementada mitjançant l'enviament d'un correu electrònic per restablir la contrasenya.
-- **Canvi de contrasenya**: Disponible una vegada iniciada la sessió per actualitzar la contrasenya de forma segura.
+### 1. **Còpia de Personatges** GESTIÓ PERSONATGES/CONSULTAR
+- S'ha afegit un botó de **còpia** a cada personatge de la base de dades.
+- Els usuaris registrats poden **crear una còpia similar** d'un personatge existent.
+- Els usuaris poden seleccionar quins **dades específiques** del personatge volen copiar.
 
-## 2. **Ordenació dels articles**
-- Els articles es poden ordenar de manera ascendent i descendent.
-- L'ordenació es gestiona amb cookies per recordar la preferència de l'usuari.
+### 2. **Generació de Codi QR amb AJAX**
+- S'ha incorporat **AJAX** per generar codis QR de manera dinàmica.
+- Quan l'usuari selecciona les dades i envia la sol·licitud, el codi QR es genera automàticament.
+- Un cop generat, es mostra un **modal** amb el codi QR.
 
-## 3. **Remember me**
-- Implementat amb cookies que guarden l'usuari durant 30 dies si selecciona aquesta opció.
+### 3. **Lector de Codi QR al Perfil de l'Usuari** PERFIL/LECTOR QR
+- Ara els usuaris poden **llegir codis QR** directament des del seu perfil.
+- El lector escaneja el QR i redirigeix automàticament a la pestanya per **insertar personatges**, completant els camps amb les dades del codi QR.
+- A més, s'ha afegit un **botó** en la generació del QR per redirigir directament al lector.
 
-## 4. **reCAPTCHA**
-- El reCAPTCHA s'activa automàticament després de 3 intents fallits d'inici de sessió per millorar la seguretat.
-
-## 5. **Autenticació social**
-- **HybridAuth**: Integració amb Reddit.
-- **OAuth**: Integració amb Google per autenticar els usuaris.
-
-## 6. **Editar perfil personal**
-- Els usuaris poden:
-  - Modificar la seva imatge de perfil.
-  - Actualitzar el seu nom d'usuari.
-- Les altres dades personals són visibles però no modificables.
-
-## 7. **Usuari Admin**
-- L'usuari administrador pot esborrar altres usuaris (Un cop esborra aquest usuari tambe s'esborren els seus personatges creats).
-
-## 8. **Barra de cerca**
-- La barra de cerca filtra els articles segons el contingut que l'usuari introdueix.
-
-## 9. **Configuracions de seguretat**
-- S'han implementat les següents configuracions de seguretat:
-  - **Error 403**: Es mostra quan un usuari intenta accedir a un lloc restringit.
-  - **Error 404**: Es mostra quan la pàgina sol·licitada no existeix.
-  - **Error 500**: Gestiona els errors del servidor.
+### 4. **Nova Secció: Arxiu Pirata** ARXIU PIRATA
+- S'ha creat una nova secció a la **barra de navegació** anomenada **Arxiu Pirata**.
+- Dins d'aquesta secció, es troben tres botons que recullen dades des d'una API externa:
+  - Un botó per obtenir **tots els personatges** disponibles.
+  - Un botó per filtrar personatges per **tripulació específica**.
+  - Un botó per filtrar personatges per **recompensa**, extraient tots els pirates de *One Piece*.
