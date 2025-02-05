@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: proxysql-01.dd.scip.local
--- Tiempo de generación: 05-02-2025 a las 19:22:28
+-- Tiempo de generación: 05-02-2025 a las 20:30:56
 -- Versión del servidor: 10.10.2-MariaDB-1:10.10.2+maria~deb11
 -- Versión de PHP: 8.2.12
 
@@ -29,7 +29,6 @@ USE `ddb237716`;
 -- Estructura de tabla para la tabla `personatges`
 --
 
-DROP TABLE IF EXISTS `personatges`;
 CREATE TABLE IF NOT EXISTS `personatges` (
   `id_personatge` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL,
@@ -104,7 +103,6 @@ INSERT INTO `personatges` (`id_personatge`, `nom`, `cos`, `usuari_id`) VALUES
 -- Estructura de tabla para la tabla `usuaris`
 --
 
-DROP TABLE IF EXISTS `usuaris`;
 CREATE TABLE IF NOT EXISTS `usuaris` (
   `id_usuari` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) NOT NULL,
@@ -126,24 +124,24 @@ CREATE TABLE IF NOT EXISTS `usuaris` (
 --
 
 INSERT INTO `usuaris` (`id_usuari`, `nom`, `cognoms`, `correu`, `usuari`, `contrasenya`, `imatge`, `administrador`, `token`, `token_time`, `autentificacio`) VALUES
-(14, 'Alba', 'Matamoros', 'a.matamoros@sapalomera.cat', 'amatamoros', '$2y$10$KLwZlbxcXkXrtKICJnME5.PcwXbFjNcVvWjnrGgt0E91J6Ohhngsi', '../vista/imatges/imatgesUsers/67a3a58c7739a_descarga (4).png', 1, 'dbd706010030b6cc759286ab76a0dac78694ee7d2cf7bd73a08606706ecc9d29f3efe905dc1b7336590fff56f6edfddfb486', 1736871152, ''),
+(14, 'Alba', 'Matamoros', 'a.matamoros@sapalomera.cat', 'amatamoros', '$2y$10$KLwZlbxcXkXrtKICJnME5.PcwXbFjNcVvWjnrGgt0E91J6Ohhngsi', '../vista/imatges/imatgesUsers/67a3ca2e1aa36_albaCalva.jpg', 1, 'dbd706010030b6cc759286ab76a0dac78694ee7d2cf7bd73a08606706ecc9d29f3efe905dc1b7336590fff56f6edfddfb486', 1736871152, ''),
 (15, 'Pedro', 'Pica', 'p.pica@sapalomera.cat', 'ppica', '$2y$10$T4wMuW7uKVd2BtQRn2v5w.4eKFr875zm33cVPFrvtXDoRvpqVKj1i', NULL, 0, '', 0, ''),
 (16, 'Piter', 'Pan', 'p.pan@sapalomera.cat', 'ppan', '$2y$10$jYKa2jKaqXhAI0spRNp6eOV97H/XH6UfIV4t3UwGiI773kMI7HWAm', NULL, 0, '', 0, ''),
 (17, 'mary', 'Jane', 'm.jane@sapalomera.cat', 'mjane', '$2y$10$.7q0zRTlaRctCHAqEgEk1.9kHXXXXZW/QMykfZ5xgHlfL9RBaKzxO', NULL, 1, '', 0, ''),
 (19, 'Joselito', 'flores', 'joslinsuria@gmail.com', 'Joselitoflores', '$2y$10$TBGiy2IEABgNPv0UK/AL9eJXixRdnNfqrQZJKsx3ewbef1rYmQ/eG', NULL, 0, '', 0, ''),
 (23, 'Àlex', 'González', 'alexpalafolls2002@gmail.com', 'KottaAG', '$2y$10$9ksL2cSbZhQoGE7gYmUqdOr1d9mH69kZbF5OLeUX6ZjpmBbJWU17O', NULL, 0, '57289e2079256f5f91672b8ff05006191669c8ff24918cd1271d15802bad9aaee22319a9df01d1e269cc00097ae4e1799ccd', 1733270201, ''),
 (32, 'Marcos', 'Lopez', 'm.lopez5@sapalomera.cat', 'Marrkitus2', '$2y$10$Y632S7rnfS18Pu4EnJY9rOKwrKAJ/79sBiq4vflTbegz3N9SpH/CC', NULL, 0, 'd09827fcf1bdaa7d7a412c470e61b304670ff81b49d52f16b18bbd8e702b5455f0ddc85c89a6d1ce497f7585ea3472a355b4', 1733153534, ''),
-(35, '', '', NULL, 'MATI_712', '', '../vista/imatges/imatgesUsers/67a3b98667a6a_avatar.png', 0, '', 0, 'Reddit'),
+(35, '', '', NULL, 'MATI_712', '', '', 0, '', 0, 'Reddit'),
 (36, '', '', NULL, 'Aromatic_Ad5332', '', NULL, 0, '', 0, 'Reddit'),
-(38, 'Alba', 'Matamoros Morales', 'matamorosmoralesalba@gmail.com', 'matamorosmoralesalba', '', '../vista/imatges/imatgesUsers/67a3b962cdd06_descarga (6).png', 0, '', 0, 'Google'),
+(38, 'Alba', 'Matamoros Morales', 'matamorosmoralesalba@gmail.com', 'matamorosmoralesalba', '', '', 0, '', 0, 'Google'),
 (41, 'Alba', 'Matamoros Morales', 'albamamo07@gmail.com', 'albamamo07', '', NULL, 0, '', 0, 'Google'),
 (43, 'Alba', 'Matamoros Morales', 'a.matamoros@sapalomera.cat', 'a.matamoros', '', NULL, 0, '', 0, 'Google'),
 (44, 'alba', 'matamoros morales', 'albamatamorosmorales@gmail.com', 'albamatamorosmorales', '', NULL, 0, '', 0, 'Google'),
-(45, 'Pau', 'Muñoz', 'munozserrap@gmail.com', 'XinLu_85', '$2y$10$2acHkf7QHxE8mlcaZHgsse192lGCkqnjqO7TZKIVuctl9kBZ06..C', '../vista/imatges/imatgesUsers/67a3b2ce07fd8_qr_a (1).png', 0, '', 0, ''),
+(45, 'Pau', 'Muñoz', 'munozserrap@gmail.com', 'XinLu_85', '$2y$10$2acHkf7QHxE8mlcaZHgsse192lGCkqnjqO7TZKIVuctl9kBZ06..C', '', 0, '', 0, ''),
 (46, 'Alba', 'Matamoros', 'albamorales@gmail.com', 'albamatamoros', '$2y$10$7AilU82tGSZwVBbxm0UL0OzUGlSvjzWi7ewn1xlxA9iFH2oC8raaG', NULL, 0, '', 0, ''),
-(47, '', '', NULL, 'Agile-Dig8224', '', '../vista/imatges/imatgesUsers/67a3b3948f053_qr_noms raros.png', 0, '', 0, 'Reddit'),
+(47, '', '', NULL, 'Agile-Dig8224', '', '', 0, '', 0, 'Reddit'),
 (48, 'Alba', 'Matamoros', 'aa@sd.com', 'albamatamoros2', '$2y$10$2SrNEYR82vllQxbTMYPU4.tRMRXDgZCXolZk1pq59EFY0GNUwjXp.', NULL, 0, '', 0, ''),
-(49, 'luis01', 'rgsdfg', 'luis010993@gmail.com', 'luis01', '$2y$10$B2AYEj5Qbqi1wJ./rOpMWu9pw19jVjRSc86MmNtBxA1nVYeoHwTL.', '../vista/imatges/imatgesUsers/67a3b82d76b77_horario daw 2.jpg', 0, '', 0, '');
+(49, 'luis01', 'rgsdfg', 'luis010993@gmail.com', 'luis01', '$2y$10$B2AYEj5Qbqi1wJ./rOpMWu9pw19jVjRSc86MmNtBxA1nVYeoHwTL.', '', 0, '', 0, '');
 
 --
 -- Restricciones para tablas volcadas
